@@ -1,4 +1,4 @@
-resource "aws_security_group" "ec2_sg" {
+resource "aws_security_group" "ec2_sg" { # change
   name        = "ec2_sg"
   description = "Allow SSH and HTTP"
   vpc_id      = var.vpc_id
