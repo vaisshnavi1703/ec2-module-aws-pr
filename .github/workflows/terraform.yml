@@ -1,4 +1,5 @@
-﻿name: Terraform EC2 Deploy
+# terraform
+ name: Terraform EC2 Deploy
 
 on:
   push:
