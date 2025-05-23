@@ -1,6 +1,6 @@
-# terraform
- name: Terraform EC2 Deploy
 
+ name: Terraform EC2 Deploy
+# terraform
 on:
   push:
     branches:
