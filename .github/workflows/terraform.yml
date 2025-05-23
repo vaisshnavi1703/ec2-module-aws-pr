@@ -53,5 +53,5 @@ jobs:
           AWS_REGION: us-east-1
           TF_VAR_key_name: "database"
           TF_VAR_vpc_id: "vpc-0f01d7cfc50992aa3"
-          TF_VAR_subnet_id: "subnet-027b2da22f9fdcd70" good?
+          TF_VAR_subnet_id: "subnet-027b2da22f9fdcd70" 
 
