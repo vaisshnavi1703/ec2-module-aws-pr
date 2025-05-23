@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    name: Terraform Apply
+    name: 'Terraform Apply'
     runs-on: ubuntu-latest
 
     steps:
@@ -21,12 +21,27 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
 
       - name: Terraform Validate
         run: terraform validate
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+          TF_VAR_key_name: "database"
+          TF_VAR_vpc_id: "vpc-0f01d7cfc50992aa3"
+          TF_VAR_subnet_id: "subnet-027b2da22f9fdcd70"
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
@@ -34,4 +49,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
+          TF_VAR_key_name: "database"
+          TF_VAR_vpc_id: "vpc-0f01d7cfc50992aa3"
+          TF_VAR_subnet_id: "subnet-027b2da22f9fdcd70"
 
