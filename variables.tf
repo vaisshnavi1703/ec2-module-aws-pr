@@ -12,5 +12,5 @@ variable "subnet_id" {
 }
 
 variable "key_name" {
-  description = "database"
+  description = "EC2 Key pair name"
 }
